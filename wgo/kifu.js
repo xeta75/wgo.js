@@ -27,6 +27,7 @@
 var recursive_clone = function(node) {
 	var n = new KNode(JSON.parse(JSON.stringify(node.getProperties())));
 	for(var ch in node.children) {
+		if(isNaN(parseInt(ch))) continue;
 		n.appendChild(recursive_clone(node.children[ch]));
 	}
 	return n;
@@ -319,7 +320,7 @@ Kifu.infoFormatters = {
 		return res;
 	},
 	RE: function(res) {
-		return '<a href="javascript: void(0)" onclick="this.parentNode.innerHTML = \''+WGo.filterHTML(res)+'\'" title="'+WGo.t('res-show-tip')+'">'+WGo.t('show')+'</a>';
+		return '<a href="javascript: void(0)" style="color:#00e;text-decoration:underline" onclick="this.parentNode.innerHTML = \''+WGo.filterHTML(res)+'\'" title="'+WGo.t('res-show-tip')+'">'+WGo.t('show')+'</a>';
 	},
 }
 
