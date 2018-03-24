@@ -5,8 +5,9 @@
 var prepare_dom = function() {
 	prepare_dom_box.call(this,"white");
 	prepare_dom_box.call(this,"black");
-	this.element.appendChild(this.white.box);
 	this.element.appendChild(this.black.box);
+	this.element.appendChild(this.white.box);
+	
 }
 
 var prepare_dom_box = function(type) {
